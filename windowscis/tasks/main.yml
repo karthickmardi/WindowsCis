@@ -1,0 +1,73 @@
+---
+- name: downloadfromansible
+  ansible.builtin.git:
+     repo: https://github.com/ansible-lockdown/Windows-2019-CIS.git
+     dest: /tmp/cis
+     version: devel
+  when: "'localhost-py3' in inventory_hostname"
+
+- name: change the directory to the cloned repo
+  command: cd /tmp/cis
+  when: "'localhost-py3' in inventory_hostname"
+
+- name: include prelims.yml
+  include_tasks: /home/ec2-user/playbooks/prelim.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - prelims
+
+- name: include section01.yml
+  include_tasks: /home/ec2-user/playbooks/section01.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section01
+
+- name: include section02.yml
+  include_tasks: /home/ec2-user/playbooks/section02.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section02
+
+- name: include section09.yml
+  include_tasks: /home/ec2-user/playbooks/section09.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section09
+
+- name: include section17.yml
+  include_tasks: /home/ec2-user/playbooks/section17.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section17
+
+- name: include section18.yml
+  include_tasks: /home/ec2-user/playbooks/section18.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section18
+
+- name: include section19.yml
+  include_tasks: /home/ec2-user/playbooks/section19.yml
+  when: "'windows_server' in inventory_hostname"
+  tags:
+      - section19
+
+- name: cleanup
+  file:
+    path: /tmp/cis
+    state: absent
+  when: "'localhost-py3' in inventory_hostname"
+
+  
+- name: send smtp email
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: windowsansible@gmail.com
+    password: opjanceaxhjacwod
+    to: karthik.mardi@digitalxc.com
+    subject: CIS_Ansible Reports
+    body: 'System {{ ansible_hostname }} has been successfully provisioned.'
+    subtype: plain
+  delegate_to: localhost
+

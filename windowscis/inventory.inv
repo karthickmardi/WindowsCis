@@ -1,0 +1,14 @@
+localhost-py3 ansible_host=localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+
+
+[windows_server_group]
+windows_server ansible_host=35.164.23.172
+
+[windows_server_group:vars]
+ansible_user=Administrator
+ansible_password=L=q62fMCqY%NJzNvH%9*g7TWp!z6sNJN
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_scheme=https
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_kerberos_delegation=true
