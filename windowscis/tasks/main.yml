@@ -59,15 +59,15 @@
   when: "'localhost-py3' in inventory_hostname"
 
   
-- name: send smtp email
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: windowsansible@gmail.com
-    password: opjanceaxhjacwod
-    to: karthik.mardi@digitalxc.com
-    subject: CIS_Ansible Reports
-    body: 'System {{ ansible_hostname }} has been successfully provisioned.'
-    subtype: plain
-  delegate_to: localhost
+#- name: send smtp email
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: windowsansible@gmail.com
+#    password: opjanceaxhjacwod
+#    to: karthik.mardi@digitalxc.com
+#    subject: CIS_Ansible Reports
+#    body: 'System {{ ansible_hostname }} has been successfully provisioned.'
+#    subtype: plain
+#  delegate_to: localhost
 
