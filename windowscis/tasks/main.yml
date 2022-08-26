@@ -58,15 +58,15 @@
     state: absent
   when: "'localhost-py3' in inventory_hostname"
 
-  
-#- name: send smtp email
-#  mail:
-#    host: smtp.gmail.com
-#    port: 587
-#    username: windowsansible@gmail.com
-#    password: opjanceaxhjacwod
-#    to: karthik.mardi@digitalxc.com
-#    subject:  Ansible-report
-#    body: 'System {{ ansible_hostname }} has been successfully provisioned.'
-#    subtype: plain
-#  delegate_to: localhost
+- name: send office365 email
+  mail:
+    host: smtp.office365.com
+    port: 587
+    username: demoadmin@digitalxc.com
+    password: Digit@pass12
+    from: demoadmin@digitalxc.com
+    to: karthik.mardi@digitalxc.com
+    subject:  Ansible-report
+    body: "hi"
+    subtype: plain
+  delegate_to: localhost
