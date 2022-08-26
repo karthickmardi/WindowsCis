@@ -66,8 +66,7 @@
 #    username: windowsansible@gmail.com
 #    password: opjanceaxhjacwod
 #    to: karthik.mardi@digitalxc.com
-#    subject: CIS_Ansible Reports
+#    subject:  Ansible-report
 #    body: 'System {{ ansible_hostname }} has been successfully provisioned.'
 #    subtype: plain
 #  delegate_to: localhost
-

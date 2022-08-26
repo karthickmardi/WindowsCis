@@ -2,11 +2,11 @@ localhost-py3 ansible_host=localhost ansible_connection=local ansible_python_int
 
 
 [windows_server_group]
-windows_server ansible_host=addipaddress
+windows_server ansible_host=18.216.137.109
 
 [windows_server_group:vars]
 ansible_user=Administrator
-ansible_password=L=addpassword
+ansible_password=mAd*nT$!XJ;NWTBb?o.UEq$RhPP8!qnJ
 ansible_port=5986
 ansible_connection=winrm
 ansible_winrm_scheme=https
